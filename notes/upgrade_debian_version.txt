@@ -12,11 +12,27 @@ For stretch it looks like this:
 
 deb http://ftp.debian.org/debian stretch-backports main
 
-Then simply use apt to upgrade:
+Once you add that line, make sure to run an apt update, to update the package list.
 
+Then upgrade your packages:
+```bash
 sudo apt-get -t stretch-backports upgrade
-
+```
 The -t option means target release
+
+Now that all of our packages our updated we can find a linux kernel to update.
+
+First search for the list of linux-kernels:
+```bash
+apt search linux-image
+```
+
+You don't want the linux-headers, an rt version, or a cloud version.
+
+In the list find the latest linux kernel, and then we can use apt to install it. For example:
+```bash
+sudo apt-get -t stretch-backports install linux-image-4.11.0-0.bpo.1-amd64
+```
 
 Once this is complete, reboot. Then check the linux version, it should be greater than the last one.
 

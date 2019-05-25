@@ -1,0 +1,22 @@
+When you first boot up a Debian image you will notice that sudo is not a command found.
+
+This guide will go over how to install sudo, and setup a user with sudo privileges.
+
+Since you sudo is not installed we have to change to the root user:
+```bash
+su
+```
+
+Enter in the root password.
+
+Now we can install the sudo package:
+```bash
+apt install sudo
+```
+
+Lastly, we can put the username in the sudo group:
+```bash
+usermod -aG sudo *username*
+```
+
+Now the user will be able to use sudo without being root.

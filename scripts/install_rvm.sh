@@ -14,4 +14,8 @@ rvm --default use ruby
 # Install Rake
 gem install rake
 
+echo "PATH=PATH:$HOME/.rvm/scripts/rvm" >> ~/.bashrc
+
+source ~/.bashrc
+
 

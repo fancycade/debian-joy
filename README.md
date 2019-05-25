@@ -26,3 +26,42 @@ Xfce
 Papirus
 - Flat Icon Theme
 apt install papirus-icon-theme
+
+# Dev
+
+Development of Debian Joy is done on QEMU.
+
+```bash
+apt install qemu-utils
+```
+
+Create hard disk image:
+```bash
+qemu-img create debian.img 2G
+```
+
+Download the current boot image:
+```bash
+wget http://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/amd64/iso-cd/debian-testing-amd64-netinst.iso
+```
+
+Boot the image with:
+```bash
+qemu-system-x86_64 -hda debian.img -cdrom debian-testing-amd64-netinst.iso -boot d -m 512
+```
+
+Once the installation is complete we can boot the system with:
+```bash
+qemu-system-x86_64 -hda debian.img -m 512
+```
+
+# Install RVM
+
+Since Debian Joy uses Ruby for all of its scripting and automation, we need a trustworthy way to install Ruby on our system. I've decided to use RVM as my tool of choice for installing Ruby.
+
+We can easily install it like so:
+```
+./scripts/install_rvm.sh
+```
+
+rvm will be added to your path. However, you must make sure that your terminal can run command as login shell. Which can be set in preferences.
