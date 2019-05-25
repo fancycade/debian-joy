@@ -1,0 +1,5 @@
+1. Input about:config in the search bar of Firefox
+
+2. Search layout.css.devPixelsPerPx
+
+3. Set to 2

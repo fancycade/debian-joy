@@ -1,0 +1,5 @@
+Follow instructions here:
+
+https://wiki.debian.org/wl
+
+Reboot, voila!
