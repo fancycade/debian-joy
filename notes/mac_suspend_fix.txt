@@ -5,4 +5,8 @@ To do the fix we need to disable a few things:
 2. echo LID0 > /proc/acpi/wakeup # If you disable lid, have to press power button supposedly...
 3. echo XHC1 > /proc/acpi/wakeup
 
-Now things should work as expected
+In order for these changes to persistent they have to be placed in /etc/rc.local
+
+Now things should work as expected, maybe...
+
+
