@@ -37,8 +37,10 @@ apt install qemu-utils
 
 Create hard disk image:
 ```bash
-qemu-img create debian.img 2G
+qemu-img create debian-joy.img 4G
 ```
+
+We need 4G disk space since we are installing XFCE as well as other packages.
 
 Download the current boot image:
 ```bash
@@ -47,12 +49,12 @@ wget http://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/amd64/iso-
 
 Boot the image with:
 ```bash
-qemu-system-x86_64 -hda debian.img -cdrom debian-testing-amd64-netinst.iso -boot d -m 512
+qemu-system-x86_64 -hda debian-joy.img -cdrom debian-testing-amd64-netinst.iso -boot d -m 512
 ```
 
 Once the installation is complete we can boot the system with:
 ```bash
-qemu-system-x86_64 -hda debian.img -m 512
+qemu-system-x86_64 -hda debian-joy.img -m 512
 ```
 
 # Install RVM

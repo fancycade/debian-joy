@@ -1,42 +1,8 @@
 This example is done with the stretch release, but should work for future versions.
 
-You'll want to make sure your linux kernel is up to date.
-Check your linux kernel version:
-```bash
-uname -r
-```
+You'll want to make sure your linux kernel is up to date. Check upgrade_linux_kernel.md on how to do that.
 
-The easiest way to upgrade the linux kernel is to add the backports repository to your /etc/apt/sources.list
-
-For stretch it looks like this:
-
-deb http://ftp.debian.org/debian stretch-backports main
-
-Once you add that line, make sure to run an apt update, to update the package list.
-
-Then upgrade your packages:
-```bash
-sudo apt-get -t stretch-backports upgrade
-```
-The -t option means target release
-
-Now that all of our packages our updated we can find a linux kernel to update.
-
-First search for the list of linux-kernels:
-```bash
-apt search linux-image
-```
-
-You don't want the linux-headers, an rt version, or a cloud version.
-
-In the list find the latest linux kernel, and then we can use apt to install it. For example:
-```bash
-sudo apt-get -t stretch-backports install linux-image-4.11.0-0.bpo.1-amd64
-```
-
-Once this is complete, reboot. Then check the linux version, it should be greater than the last one.
-
-Then comment out all the mentions of stretch.
+Go to `/etc/apt/sources.list` and comment/delete all mentions of stetch.
 
 Depending on how far the release is in its cycle, this might be different.
 
@@ -50,6 +16,10 @@ deb-src http://deb.debian.org/debian buster main
 Run `apt update` to make sure there are no errors.
 
 Then you can safely run `apt upgrade`
+
+Note: This process uses a decent amount of disk space while all of the old packages are still installed. So make sure your QEMU image size is bigger than 2G.
+
+Which will increase the image size by 1 Gigabyte.
 
 If there are any errors make sure to take care of them. Running `apt autoremove` doesn't hurt
 
