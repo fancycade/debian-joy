@@ -4,6 +4,21 @@ Project originated by Harley Swick, to make the usage, development of GNU/Linux 
 
 This idea of joy is heavily inspired by the Ruby philosophy of developer happiness.
 
+# djoy
+
+Command line utility used to run the xfce_mod script. djoy will also store backups of the changed files.
+If the user decides to go back to the old changes before xfce, they can choose to do so.
+
+It might be fun to expose some sub utilities that other projects may like.
+
+Use of djoy would look like this:
+
+```bash
+sudo apt install debian-joy
+djoy setup
+djoy revert
+```
+
 # How does this project 'spark joy'?
 
 It tries to only include, or at least emphasize, software that brings joy to me
