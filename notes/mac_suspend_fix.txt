@@ -1,3 +1,16 @@
+# Solution
+
+The solution is properly setting the xfce power manager.
+
+Firstly, turn off the display power settings, this way it wont sleep after some time. This is different than going blank.
+
+Second, set laptop lid to suspend for both battery and plugged in.
+* Should do this with my xfce beautify script
+
+# Notes
+
+The stuff below are notes from possible fixes that didn't do what I wanted.
+
 1. cat /proc/acpi/wakeup list devices with wakeup events
 
 To do the fix we need to disable a few things:
@@ -11,4 +24,16 @@ Now things should work as expected, maybe...
 
 The next thing to check is your OS's power settings. This bug can prop up if your computer goes into hibernation mode. Make sure sleep mode for battery and plugged in is set to suspend.
 
+
+https://askubuntu.com/questions/803741/laptop-wont-turn-back-on-after-closing-lid
+
+Tell machine not to sleep when lid is closed:
+
+sudo -H gedit /etc/systemd/logind.conf
+
+add "HandleLidSwitch=ignore" to bottom of the text.
+
+```bash
+sudo service systemd-logind restart
+```
 

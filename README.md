@@ -8,10 +8,6 @@ This idea of joy is heavily inspired by the Ruby philosophy of developer happine
 
 It tries to only include, or at least emphasize, software that brings joy to me
 
-This includes:
-Ruby + Rake
-- Idea is to use Rake for build tools, and other automation
-
 Rust
 - Rust is powerful and is the preferred way to make desktop apps
 - Relm
@@ -22,10 +18,28 @@ Emacs
 
 Xfce
 - Lightweight Desktop Environment that has a cute mouse as a logo
+- Link for minimal XFCE install: https://git.devuan.org/dev1fanboy/Upgrade-Install-Devuan/wikis/minimal-xfce-install
+- The default XFCE debian install includes a lot of software that isn't super necessary.
 
 Papirus
 - Flat Icon Theme
+```bash
 apt install papirus-icon-theme
+```
+
+Ion
+- Ion Shell
+- This is the RedoxOS shell. It is fast, and has a nice syntax.
+- It brings me joy, and is part of the transition to more Rust in the OS, so I want to includ it.
+- This may involve maintaining the ion-shell package for Debian (i.e. make the package, maybe use debcargo)
+
+Window Manager
+- Xfce comes with xfwm4
+- Another option is way-cooler, which is written in Rust
+
+Display Manager
+- lightdm comes with the xfce4 install, and it is more consistent with xfce's theming.
+- gdm looks good, but feels inconsistent with xfce since it uses the gnome-shell
 
 # Dev
 
@@ -37,10 +51,12 @@ apt install qemu-utils
 
 Create hard disk image:
 ```bash
-qemu-img create debian-joy.img 4G
+qemu-img create debian-joy.img 16G
 ```
 
-We need 4G disk space since we are installing XFCE as well as other packages.
+Might be able to get away with less.
+
+We need 8G disk space since we are installing XFCE as well as other packages.
 
 Download the current boot image:
 ```bash
@@ -49,12 +65,17 @@ wget http://cdimage.debian.org/cdimage/daily-builds/daily/arch-latest/amd64/iso-
 
 Boot the image with:
 ```bash
-qemu-system-x86_64 -hda debian-joy.img -cdrom debian-testing-amd64-netinst.iso -boot d -m 512
+qemu-system-x86_64 -hda debian-joy.img -cdrom debian-testing-amd64-netinst.iso -boot d -m 3G
+```
+
+I recommend making a copy of the fresh image so you don't have to wait for the installation in case you want to do a hard reset:
+```bash
+cp debian-joy.img debian-joy.img.backup
 ```
 
 Once the installation is complete we can boot the system with:
 ```bash
-qemu-system-x86_64 -hda debian-joy.img -m 512
+qemu-system-x86_64 -hda debian-joy.img -m 3G
 ```
 
 # Install RVM
