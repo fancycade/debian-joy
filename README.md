@@ -19,6 +19,14 @@ djoy setup
 djoy revert
 ```
 
+# swirl
+
+To more generalize this concept, we could implement a tool called a swirl that can take a script or a command, and do what djoy does.
+
+The swirl would be close to but not quite a blend.
+
+People can share their swirls with others on the debian swirl site.
+
 # How does this project 'spark joy'?
 
 It tries to only include, or at least emphasize, software that brings joy to me
