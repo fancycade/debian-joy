@@ -15,9 +15,13 @@ xfconf-query -c xfwm4 -p '/general/workspace_count' -s 2
 # Set application menu icon
 xfconf-query -c xfce4-panel -p '/plugins/plugin-1/button-icon' -s xfce4-whiskermenu
 
-# Set applicationemnu show button title to false
+# Set application menu show button title to false
 xfconf-query -c xfce4-panel -p '/plugins/plugin-1/show_button_title -s false
 
 # Turn off labels for tasklist
 xfconf-query -c xfce4-panel -p '/plugins/plugin-3/show-labels' -s false
 xfconf-query -c xfce4-panel -p '/plugins/plugin-3/show-handle' -s false
+
+# Add plugins
+# List number of plugins
+xfconf-query -c xfce4-panel -p /plugins -l

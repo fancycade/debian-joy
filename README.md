@@ -101,13 +101,27 @@ Once the installation is complete we can boot the system with:
 qemu-system-x86_64 -hda debian-joy.img -m 3G
 ```
 
-# Install RVM
+# xyz
 
-Since Debian Joy uses Ruby for all of its scripting and automation, we need a trustworthy way to install Ruby on our system. I've decided to use RVM as my tool of choice for installing Ruby.
+Experimental DE for testing out ideas that might eventually go into xfce.
 
-We can easily install it like so:
-```
-./scripts/install_rvm.sh
-```
+All applications would be written in Rust using the gtk library.
 
-rvm will be added to your path. However, you must make sure that your terminal can run command as login shell. Which can be set in preferences.
+Goals:
+* Support the xfce legacy
+* Provide a testing ground for experimental ideas that could eventually go into xfce
+- Use Rust to write all gtk applications
+- Stop using the xfwm4 in place of a wayland friendly window manager
+* Become a Debian Pure Blend, starts as a derivative
+
+Ideas:
+* xyz-dm - replace lightdm with a simple lockscreen written in Rust
+* xyz-settings - port xfce4-settings to Rust (eventually migrate to Wayland)
+* xfconf?
+* cat logo - xfce has a mouse, so its only fitting to have a cat
+
+* replace xfce4 terminal with kitty (since cat logo is great), or alacritty since its rust
+* replace xfwm4 with i3
+
+* port all xfce apps to rust gtk3
+
