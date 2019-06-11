@@ -26,7 +26,7 @@ def create_plugin_group(id)
 end
 
 def plugin_items_property(filename, id)
-  `xfconf-query -c xfce4-panel -p /plugins/plugin-#{id}/items -t string -s "{filename}" -a --create`
+  `xfconf-query -c xfce4-panel -p /plugins/plugin-#{id}/items -t string -s "#{filename}" -a --create`
 end
 
 def list_plugin_ids
@@ -49,4 +49,32 @@ end
 
 def restart_xfce_panel
   `xfce4-panel -r`
+end
+
+def main()
+  
+  desktop_files = [
+    "firefox-esr.desktop",
+    "Thunar.desktop",
+    "xfce4-terminal.desktop",
+    "xfce4-appfinder.desktop",
+    "xfce4-power-manager-settings.desktop"
+  ]
+
+  max_id = current_max_id()
+
+  ids = list_plugin_ids()
+
+  desktop_files.each do |filename|
+    max_id = max_id + 1
+    make_launcher_dir(max_id)
+    copy_desktop_file_to_dir(filename, max_id)
+    create_plugin_group(max_id)
+    plugin_items_property(filename, max_id)
+    ids << max_id
+  end
+
+  delete_plugins_array()
+  create_plugins_array()
+
 end
