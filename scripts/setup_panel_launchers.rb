@@ -75,6 +75,6 @@ def main()
   end
 
   delete_plugins_array()
-  create_plugins_array()
+  create_plugins_array(ids)
 
 end
