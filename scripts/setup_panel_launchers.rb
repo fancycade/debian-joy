@@ -1,7 +1,7 @@
 
 # Designed around this post: https://forum.xfce.org/viewtopic.php?pid=32033#p32033
 
-def current_max_id
+def current_max_id()
   plugins = `xfconf-query -c xfce4-panel -p /plugins -l`
 
   nums = []
@@ -29,12 +29,12 @@ def plugin_items_property(filename, id)
   `xfconf-query -c xfce4-panel -p /plugins/plugin-#{id}/items -t string -s "#{filename}" -a --create`
 end
 
-def list_plugin_ids
+def list_plugin_ids()
   s = `xfconf-query -c xfce4-panel -p /panels/panel-1/plugin-ids`
-  s.split(":")[1].split(/\n/)[2..]
+  s.split(":")[1].split(/\n/)[2..-1]
 end
 
-def delete_plugins_array
+def delete_plugins_array()
   `xfconf-query -c xfce4-panel -p /panels/panel-1/plugin-ids -rR`
 end
 
@@ -47,7 +47,7 @@ def create_plugins_array(ids)
   command + " --create"
 end
 
-def restart_xfce_panel
+def restart_xfce_panel()
   `xfce4-panel -r`
 end
 
@@ -78,3 +78,5 @@ def main()
   create_plugins_array(ids)
 
 end
+
+main()
