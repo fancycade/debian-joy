@@ -13,15 +13,11 @@ xfconf-query --channel 'xfce4-panel' --property '/plugins/plugin-4/rows' --creat
 xfconf-query -c xfwm4 -p '/general/workspace_count' -s 2
 
 # Set application menu icon
-xfconf-query -c xfce4-panel -p '/plugins/plugin-1/button-icon' -s xfce4-whiskermenu
+xfconf-query -c xfce4-panel -p '/plugins/plugin-1/button-icon' --create --type string --set 'xfce4-panel'
 
 # Set application menu show button title to false
-xfconf-query -c xfce4-panel -p '/plugins/plugin-1/show_button_title -s false
+xfconf-query -c xfce4-panel -p '/plugins/plugin-1/show-button-title' --create --type bool -s false
 
 # Turn off labels for tasklist
-xfconf-query -c xfce4-panel -p '/plugins/plugin-3/show-labels' -s false
-xfconf-query -c xfce4-panel -p '/plugins/plugin-3/show-handle' -s false
-
-# Add plugins
-# List number of plugins
-xfconf-query -c xfce4-panel -p /plugins -l
+xfconf-query -c xfce4-panel -p '/plugins/plugin-3/show-labels' --create --type bool -s false
+xfconf-query -c xfce4-panel -p '/plugins/plugin-3/show-handle' --create --type bool -s false
