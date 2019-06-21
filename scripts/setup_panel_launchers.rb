@@ -56,7 +56,7 @@ def main()
   desktop_files = [
     "firefox-esr.desktop",
     "Thunar.desktop",
-    "xfce4-terminal.desktop",
+    "debian-xterm.desktop",
     "xfce4-appfinder.desktop",
     "xfce4-power-manager-settings.desktop"
   ]
