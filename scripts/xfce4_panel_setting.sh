@@ -21,3 +21,6 @@ xfconf-query -c xfce4-panel -p '/plugins/plugin-1/show-button-title' --create --
 # Turn off labels for tasklist
 xfconf-query -c xfce4-panel -p '/plugins/plugin-3/show-labels' --create --type bool -s false
 xfconf-query -c xfce4-panel -p '/plugins/plugin-3/show-handle' --create --type bool -s false
+
+# Restart xfce4-panel to see changes
+xfce4-panel -r

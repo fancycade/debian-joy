@@ -40,11 +40,11 @@ end
 
 # Order of ids determines order in panel display
 def create_plugins_array(ids)
-  command = "xfconf-query -c xfce4-panel -p /panels/panel-1/plugin-ids"
+  command = "xfconf-query -c xfce4-panel -p /panels/panel-1/plugin-ids --create"
   ids.each do |id|
-    command += " -t int -s #{id}"
+    command += " --type int --set #{id}"
   end
-  command + " --create"
+  system(command)
 end
 
 def restart_xfce_panel()
