@@ -64,6 +64,10 @@ Display Manager
 - lightdm comes with the xfce4 install, and it is more consistent with xfce's theming.
 - gdm looks good, but feels inconsistent with xfce since it uses the gnome-shell
 
+Rust utils:
+- exa
+- bat
+
 # Dev
 
 Development of Debian Joy is done on QEMU.
