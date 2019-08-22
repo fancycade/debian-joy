@@ -69,6 +69,11 @@ def configure_xfce_terminal()
   File.writelines('~/.config/xfce4/terminal/terminalrc', new_lines)
 end
 
+def set_terminal_prompt()
+  `echo "" >> .bashrc`
+  `echo 'PS1="\u[\W]: "' >> .bashrc`
+end
+
 install_emacs()
 install_utils()
 install_unstables()
