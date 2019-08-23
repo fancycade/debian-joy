@@ -5,6 +5,7 @@ def install_unstables()
 
   `sudo apt update`
   `sudo apt install bat`
+  `sudo apt install xfce4`
 
   # Remove unstable apt repository
   `add-apt-repository --remove "deb http://deb.debian.org/debian/ sid main"`
