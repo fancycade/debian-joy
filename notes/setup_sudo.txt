@@ -4,7 +4,7 @@ This guide will go over how to install sudo, and setup a user with sudo privileg
 
 Since you sudo is not installed we have to change to the root user:
 ```bash
-su
+su -
 ```
 
 Enter in the root password.
